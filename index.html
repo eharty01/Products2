@@ -11,19 +11,23 @@
     <div class="result">
         <p id="product-display"></p>
     </div>
+
     <script>
+
+        /* get JSON data */
         $.getJSON('products.json', function(data) {
             const productsHTML = data.products;
             let booksForSale = "";
             
-            for (let i = 0; i < 10; i++) {
+            /* loop through it categorizing each item for CSS */
+            for (let i = 0; i < productsHTML.length; i++) {
                 booksForSale += 
-                    "<div class=\"product-box\">" +
-                        "<h3>" + productsHTML[i].name + "</h3>" +
-                        "<p class=\"description\">" + productsHTML[i].description + "</p>" +
-                        "<p class=\"pricing\">" + "Price: " + productsHTML[i].price + "</p>" +
-                        "<p class=\"categories\">" + "Categories: " + "<br>" + productsHTML[i].categories + "</p>" +
-                    "</div>"; 
+                    '<div class="product-box">' +
+                        '<h3>' + productsHTML[i].name + '</h3>' +
+                        '<p class=description>' + productsHTML[i].description + '</p>' +
+                        '<p class="pricing">' + "Price: " + productsHTML[i].price + '</p>' +
+                        '<p class="categories">' + "Categories: " + '<br>' + productsHTML[i].categories + '</p>' +
+                    '</div>'; 
             }
 
             document.getElementById("product-display").innerHTML = booksForSale;
