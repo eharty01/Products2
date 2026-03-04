@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <nav class="navbar">
+    <h2>Cozy Corner Bookstore</h2>
+  </nav>
+</head>
+
+<body>
+    <div class-name="result">
+        <p id="product-display"></p>
+    </div>
+    <script>
+        $.getJSON('products.json', function(data) {
+            const productsHTML = data.products;
+            
+            document.getElementById("product-display").innerHTML =
+            productsHTML.products[1].name + " " + productsHTML.products[1].description;
+        })
+    </script>
+</body>
+</html>
