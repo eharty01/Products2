@@ -3,21 +3,30 @@
 <head>
   <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <nav class="navbar">
-    <h2>Cozy Corner Bookstore</h2>
-  </nav>
 </head>
 
 <body>
-    <div class-name="result">
+    <h2>Cozy Corner Bookstore</h2>
+
+    <div class="result">
         <p id="product-display"></p>
     </div>
     <script>
         $.getJSON('products.json', function(data) {
             const productsHTML = data.products;
+            let booksForSale = "";
             
-            document.getElementById("product-display").innerHTML =
-            productsHTML.products[1].name + " " + productsHTML.products[1].description;
+            for (let i = 0; i < 10; i++) {
+                booksForSale += 
+                    "<div class=\"product-box\">" +
+                        "<h3>" + productsHTML[i].name + "</h3>" +
+                        "<p class=\"description\">" + productsHTML[i].description + "</p>" +
+                        "<p class=\"pricing\">" + "Price: " + productsHTML[i].price + "</p>" +
+                        "<p class=\"categories\">" + "Categories: " + "<br>" + productsHTML[i].categories + "</p>" +
+                    "</div>"; 
+            }
+
+            document.getElementById("product-display").innerHTML = booksForSale;
         })
     </script>
 </body>
