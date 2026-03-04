@@ -28,3 +28,27 @@ body img {
     width: 100px;
     padding: 10px;
 }
+
+#product-display {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-box {
+  border: solid, 3px, white;
+  color: white;
+  border-radius: 5px;
+  max-width: 300px;
+  padding: 10px;
+}
+
+.product-box:hover {
+  border: solid, 3px, grey;
+  cursor: pointer;
+}
+
+.product-box h3 {
+  color: orange;
+}
